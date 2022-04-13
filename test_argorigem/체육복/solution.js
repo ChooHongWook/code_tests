@@ -1,7 +1,22 @@
 function solution(n, lost, reserve) {
+  let answer = 0;
   lost.sort((a, b) => a - b);
   reserve.sort((a, b) => a - b);
-  let answer = 0;
+
+  // 여분을 가져온사람이 도난당하는 경우
+  let count = 0;
+  let start;
+  for (let i = 0; i < lost.length; i++) {
+    for (let j = start || 0; j < reserve.length; j++) {
+      if (lost[i] === reserve[j]) {
+        lost.splice(i - count, 1);
+        reserve.splice(j - count, 1);
+        count++;
+        start = j;
+        break;
+      }
+    }
+  }
 
   // n은 1부터 n 까지의 배열
   let arrN = [];
@@ -15,8 +30,7 @@ function solution(n, lost, reserve) {
   while (lostIdx < lost.length && reserveIdx < reserve.length) {
     if (
       lost[lostIdx] === reserve[reserveIdx] - 1 ||
-      lost[lostIdx] === reserve[reserveIdx] + 1 ||
-      lost[lostIdx] === reserve[reserveIdx]
+      lost[lostIdx] === reserve[reserveIdx] + 1
     ) {
       // console.log(lost[lostIdx] + "받음");
       lostIdx++;
@@ -47,7 +61,7 @@ function solution(n, lost, reserve) {
   return answer;
 }
 
-console.log(solution(7, [2, 6], [3]));
+console.log(solution(7, [2, 3, 4], [1, 2, 3, 6]));
 
 // 1, , 3, , 5
 
