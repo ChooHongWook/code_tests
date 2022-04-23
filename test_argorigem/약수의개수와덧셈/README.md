@@ -28,3 +28,5 @@ left right result
 26 1, 2, 13, 26 4
 27 1, 3, 9, 27 4
 따라서, 24 - 25 + 26 + 27 = 52를 return 해야 합니다.
+
+reference : https://programmers.co.kr/learn/courses/30/lessons/77884
