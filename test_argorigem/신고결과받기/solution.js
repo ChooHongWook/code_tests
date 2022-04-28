@@ -1,5 +1,5 @@
 // 시간복잡도 O(4n)
-function solution(id_list, report, k) {
+function solution1(id_list, report, k) {
   // 한번에 한명 신고
   // 횟수 제한 x 서로 다른 유저 연속 신고 가능하나 최대 1회 처리
   // => 중복 있을시 중복 처링필요
@@ -48,3 +48,39 @@ function solution(id_list, report, k) {
   answer = Object.values(obj_id);
   return answer;
 }
+
+// 수정
+function solution(id_list, report, k) {
+  let reportedUsers = {};
+  let getMailUsers = {};
+  let stoped = [];
+  for (let i = 0; i < id_list.length; i++) {
+    reportedUsers[id_list[i]] = [];
+    getMailUsers[id_list[i]] = 0;
+  }
+  console.log('reportedUsers:', reportedUsers);
+  console.log('getMailUsers:', getMailUsers);
+
+  // 중복제거
+  let uniqueArr = [...new Set(report)];
+  console.log('uniqueArr:', uniqueArr);
+  for (let i = 0; i < uniqueArr.length; i++) {
+    let [reportU, reportedU] = uniqueArr[i].split(' ');
+    reportedUsers[reportedU].push(reportU);
+  }
+  // 객체 순환
+  for (let key in reportedUsers) {
+    console.log('key:', key);
+    console.log('value:', reportedUsers[key]);
+    if (reportedUsers[key].length >= k) {
+      stoped.push(key);
+      for (let i = 0; i < reportedUsers[key].length; i++) {}
+    }
+  }
+  console.log('stoped:', stoped);
+  console.log('reportedUsers:', reportedUsers);
+
+  return reportedUsers;
+}
+
+// {muzi:[],frodo:[],apeach:[],neo:[]}
