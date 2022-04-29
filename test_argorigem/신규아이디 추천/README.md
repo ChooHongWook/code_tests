@@ -94,3 +94,5 @@ no new*id result
 5단계 변화 없습니다.
 6단계 "abcdefghijklmn.p" → "abcdefghijklmn." → "abcdefghijklmn"
 7단계 변화 없습니다.
+
+https://programmers.co.kr/learn/courses/30/lessons/72410/solution_groups?language=javascript
