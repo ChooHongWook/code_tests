@@ -39,7 +39,6 @@ function solution1(id_list, report, k) {
   // { 유저명: 정지시킨 신고 수}
   arrReport.map((rep) => {
     if (banList.includes(rep[1])) {
-      // ★수정★
       obj_id[rep[0]] += 1;
     }
   });
@@ -53,34 +52,40 @@ function solution1(id_list, report, k) {
 function solution(id_list, report, k) {
   let reportedUsers = {};
   let getMailUsers = {};
-  let stoped = [];
   for (let i = 0; i < id_list.length; i++) {
     reportedUsers[id_list[i]] = [];
     getMailUsers[id_list[i]] = 0;
   }
-  console.log('reportedUsers:', reportedUsers);
-  console.log('getMailUsers:', getMailUsers);
+  // console.log("reportedUsers:",reportedUsers)
+  // console.log("getMailUsers:",getMailUsers)
 
   // 중복제거
   let uniqueArr = [...new Set(report)];
-  console.log('uniqueArr:', uniqueArr);
+  // console.log("uniqueArr:",uniqueArr)
+
   for (let i = 0; i < uniqueArr.length; i++) {
+    // 신고자, 피신고자 분리
     let [reportU, reportedU] = uniqueArr[i].split(' ');
+    // 피신고자를 신고한 사람넣기
     reportedUsers[reportedU].push(reportU);
   }
   // 객체 순환
   for (let key in reportedUsers) {
-    console.log('key:', key);
-    console.log('value:', reportedUsers[key]);
+    // console.log("key:",key)
+    // console.log("value:",reportedUsers[key])
+
+    // 신고당한 숫자가 k이상이면 정지
     if (reportedUsers[key].length >= k) {
-      stoped.push(key);
-      for (let i = 0; i < reportedUsers[key].length; i++) {}
+      // 정지당한 유저를 신고한사람에게 메일보내기
+      for (let i = 0; i < reportedUsers[key].length; i++) {
+        getMailUsers[reportedUsers[key][i]] += 1;
+      }
     }
   }
-  console.log('stoped:', stoped);
-  console.log('reportedUsers:', reportedUsers);
+  // console.log("getMailUsers:",getMailUsers)
+  // console.log("reportedUsers:",reportedUsers)
 
-  return reportedUsers;
+  let result = id_list.map((e) => getMailUsers[e]);
+
+  return result;
 }
-
-// {muzi:[],frodo:[],apeach:[],neo:[]}
