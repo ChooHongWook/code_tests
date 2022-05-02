@@ -1,5 +1,5 @@
-function solution(s) {
-  let result = "";
+function solution1(s) {
+  let result = '';
   let hashTable = {
     zero: 0,
     one: 1,
@@ -13,7 +13,7 @@ function solution(s) {
     nine: 9,
   };
   let pivot = 0;
-  let temp = "";
+  let temp = '';
   while (pivot < s.length) {
     if (parseInt(s[pivot]) || parseInt(s[pivot]) === 0) {
       result += s[pivot];
@@ -21,7 +21,7 @@ function solution(s) {
       temp += s[pivot];
       if (hashTable[temp]) {
         result += hashTable[temp];
-        temp = "";
+        temp = '';
       }
     }
     pivot++;
@@ -29,4 +29,41 @@ function solution(s) {
 
   console.log(result);
   return parseInt(result);
+}
+
+function solution2(s) {
+  let stringNumber = [
+    'zero',
+    'one',
+    'two',
+    'three',
+    'four',
+    'five',
+    'six',
+    'seven',
+    'eight',
+    'nine',
+  ];
+  let number = '1234567890';
+  console.log('s:', s);
+  let char = '';
+  let result = '';
+  for (let i = 0; i < s.length; i++) {
+    // console.log('s[i]:',s[i])
+    if (number.includes(s[i])) {
+      // console.log("숫자가 들어감")
+      result += s[i];
+    } else {
+      char += s[i];
+
+      if (stringNumber.indexOf(char) === -1) {
+      } else {
+        console.log('char:', char);
+        result += stringNumber.indexOf(char);
+        char = '';
+      }
+    }
+  }
+  var answer = Number(result);
+  return answer;
 }
