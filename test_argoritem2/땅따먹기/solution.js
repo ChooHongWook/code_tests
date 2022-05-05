@@ -21,6 +21,7 @@ function solution(land) {
 // 아 전부다 꺼내서 비교를 해서 너무 오래걸림
 function solution(land) {
   let result = [];
+  // bfs 사용
   function repeat(arrs, num, idx) {
     // 탈줄조건
     if (arrs.length === 0) {
@@ -43,14 +44,11 @@ function solution(land) {
       console.log('i:', i);
       console.log('num+arr[i]:', num + arr[i]);
 
+      // 함수실행
       repeat(arrs.slice(), num + arr[i], i);
       console.log();
     }
   }
-
-  repeat(land, 0, 4);
-  console.log('result:', result);
-  return Math.max(...result);
 }
 //----------------------------------------------------------------
 
@@ -71,7 +69,7 @@ function solution(land) {
   for (let rowIndex = 1; rowIndex < land.length; rowIndex++) {
     // 행 인덱스 만큼 반복
     for (let colIndex = 0; colIndex < land[0].length; colIndex++) {
-      // land의 각각의 위치에 기존값에 이젠에 더할수 있는 숫자중 가장 최댓갑 더하기
+      // land의 각각의 위치에 기존값에 이전에 더할수 있는 숫자중 가장 최댓값 더하기
       console.log('rowIndex:', rowIndex);
       console.log('colIndex:', colIndex);
       console.log('더하는 최대 배열:', [
