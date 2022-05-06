@@ -49,10 +49,14 @@ function solution(land) {
       console.log();
     }
   }
+
+  repeat(land, 0, 4);
+
+  return Math.max(...result);
 }
 //----------------------------------------------------------------
 
-// function solution(land) {
+// function solution(land) {[](../../../../../../../learn/courses/30/lessons/12913)
 //   for (let rowIndex = 1; rowIndex < land.length; rowIndex++) {
 //     for (let colIndex = 0; colIndex < land[0].length; colIndex++) {
 //       land[rowIndex][colIndex] += Math.max(
@@ -84,6 +88,21 @@ function solution(land) {
     }
   }
   console.log('최댓값 전의 배열확인:', land[land.length - 1]);
+  return Math.max(...land[land.length - 1]);
+}
+
+function solution(land) {
+  //열 인덱스만큼 반복
+  for (let rowIndex = 1; rowIndex < land.length; rowIndex++) {
+    // 행 인덱스 만큼 반복
+    for (let colIndex = 0; colIndex < land[0].length; colIndex++) {
+      // land의 각각의 위치에 기존값에 이전에 더할수 있는 숫자중 가장 최댓값 더하기
+      land[rowIndex][colIndex] += Math.max(
+        ...land[rowIndex - 1].slice(0, colIndex),
+        ...land[rowIndex - 1].slice(colIndex + 1)
+      );
+    }
+  }
   return Math.max(...land[land.length - 1]);
 }
 //----------------------------------------------------------------
