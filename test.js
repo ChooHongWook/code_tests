@@ -1,6 +1,16 @@
-var v1 = 'test';
-var v2 = v1; // (1) console.log(v1);
-console.log(v2);
-v2 = 'hi taeho'; // (2)
-console.log(v1);
-console.log(v2);
+class animal {
+  constructor() {
+    this.storge = {};
+  }
+
+  bearck() {
+    console.log('bearck');
+    return;
+  }
+}
+
+let cat = new animal('cat');
+cat.bearck();
+
+let dog = new animal('dog');
+dog.bearck();
