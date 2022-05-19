@@ -91,7 +91,6 @@ const accendingByLength = (arr1, arr2) => arr1.length - arr2.length;
 
 const solution = (s) => tupleFrom(s);
 /**
-
 테스트 1 〉	통과 (0.14ms, 30.1MB)
 테스트 2 〉	통과 (0.23ms, 30.1MB)
 테스트 3 〉	통과 (0.13ms, 30.1MB)
@@ -133,6 +132,4 @@ const solution = (s) =>
 테스트 13 〉	통과 (51.03ms, 37.3MB)
 테스트 14 〉	통과 (51.62ms, 37.2MB)
 테스트 15 〉	통과 (0.16ms, 30MB)
- *
- *
  */
