@@ -13,11 +13,27 @@ class MyClass {
 
 let myInstance = new MyClass('요소입니다');
 
-myInstance.addedMethod = function () {
-  console.log('addedMethod');
-};
+class extendsClass extends MyClass {
+  constructor(ele, ele2) {
+    super(ele);
+    this.ele2 = ele2;
+  }
 
-console.log('myInstance:', myInstance);
-myInstance.method1();
-myInstance.method2();
-myInstance.addedMethod();
+  method3() {
+    console.log('method3');
+  }
+  method4() {
+    this.method2();
+  }
+  method5() {
+    super.method2();
+  }
+}
+
+let newInstance = new extendsClass('처음에 넣음', '두번째 요소');
+console.log('newInstance:', newInstance);
+newInstance.method1();
+newInstance.method2();
+newInstance.method3();
+newInstance.method4();
+newInstance.method5();
