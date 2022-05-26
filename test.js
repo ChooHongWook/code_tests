@@ -1,8 +1,10 @@
-// 콘솔창 결과?
-let arr3 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-// let a = ...arr3
+let arr = [];
 
-let b = { 1: 2, 4: 5 };
+while (arr.length === 0) {
+  arr.push(1);
+  let a = 4;
+  var b = 5;
+}
 
-arr3.push(b);
-console.log(arr3);
+// console.log('a:', a);
+console.log('b:', b);
