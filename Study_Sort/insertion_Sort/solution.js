@@ -20,6 +20,7 @@ function insertionSort(arr) {
 }
 
 // ----------------------------------------------------------------
+//optimized solution
 function insertionSort(arr, transform = (item) => item) {
   let sorted = [arr[0]];
   for (let i = 1; i < arr.length; i++) {
