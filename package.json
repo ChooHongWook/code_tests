@@ -2,5 +2,23 @@
   "dependencies": {
     "mysql2": "^2.3.3",
     "sequelize": "^6.19.0"
-  }
+  },
+  "name": "code_tests",
+  "description": "코테",
+  "version": "1.0.0",
+  "main": "test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChooHongWook/code_tests.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChooHongWook/code_tests/issues"
+  },
+  "homepage": "https://github.com/ChooHongWook/code_tests#readme"
 }

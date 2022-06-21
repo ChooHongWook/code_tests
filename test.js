@@ -1,25 +1,17 @@
-function mostFrequentCharacter(str) {
-  // TODO: 여기에 코드를 작성합니다.
+const EventEmitter = require('events');
 
-  let newObj = {};
-  let result = '';
-  let bigNum = 0;
+const myEmitter = new EventEmitter();
 
-  for (let i = 0; i < str.length; i++) {
-    if (str[i] === ' ') {
-      continue;
-    }
+myEmitter.once('test', () => {
+  console.log('A');
+});
 
-    if (str[i] in newObj) {
-      newObj[str[i]] += 1;
-      if (bigNum < newObj[str[i]]) {
-        result = str[i];
-        bigNum = newObj[str[i]];
-      }
-    } else {
-      newObj[str[i]] = 1;
-    }
-  }
+myEmitter.once('test', () => {
+  console.log('B');
+});
 
-  return result;
-}
+myEmitter.once('test', () => {
+  console.log('C');
+});
+
+console.log(typeof myEmitter.listeners('test'));
