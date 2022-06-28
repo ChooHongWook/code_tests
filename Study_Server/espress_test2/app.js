@@ -1,3 +1,8 @@
+// express 넣기
+// import와의 차이점
+// import는 최상단에만 선언할수 있음
+// require는 중간에 선언할수 있음
+// inportrk ex6문법
 const express = require('express');
 
 const app = express();
