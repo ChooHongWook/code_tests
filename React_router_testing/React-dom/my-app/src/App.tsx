@@ -12,6 +12,7 @@ import {
 import { usePrompt } from './component/Blocker';
 import Main from './page/Mypage';
 import Mypage from './page/Mypage';
+import Home from './page/Home';
 // v5 -> v6
 //Switch -> Routes
 // useHistory -> useNavigate
@@ -23,6 +24,7 @@ const App: React.FC = () => {
       {/* ㅇㅕ기쯤?ㄴ */}
       <Router>
         <Routes>
+          <Route path="/" element={<Home />} />
           <Route path="/main" element={<Main />} />
           <Route path="/detail" element={<Mypage />} />
         </Routes>
